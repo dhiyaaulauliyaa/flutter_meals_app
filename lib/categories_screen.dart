@@ -9,7 +9,6 @@ class CategoriesScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('MactivMeals'),
-
       ),
       body: GridView(
         padding: EdgeInsets.all(25),
@@ -23,6 +22,7 @@ class CategoriesScreen extends StatelessWidget {
           ...DUMMY_CATEGORIES
               .map(
                 (data) => CategoryItem(
+                  id: data.id,
                   title: data.title,
                   color: data.color,
                 ),
