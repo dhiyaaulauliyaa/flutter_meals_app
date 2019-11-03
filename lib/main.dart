@@ -33,7 +33,7 @@ class MyApp extends StatelessWidget {
 //      home: MyHomePage(title: 'MactivMeals'),
       home: CategoriesScreen(),
       routes: {
-        '/category-meals' : (ctx) => CategoryMealsScreen(),
+        CategoryMealsScreen.routeName : (ctx) => CategoryMealsScreen(),
       },
     );
   }
