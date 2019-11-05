@@ -10,7 +10,7 @@ class MealDetailScreen extends StatelessWidget {
       margin: EdgeInsets.symmetric(vertical: 10),
       child: Text(
         text,
-        style: Theme.of(context).textTheme.title,
+        style: TextStyle(fontWeight: FontWeight.w700, fontSize: 20),
       ),
     );
   }
@@ -44,9 +44,35 @@ class MealDetailScreen extends StatelessWidget {
             Container(
               height: 300,
               width: double.infinity,
-              child: Image.network(
-                selectedMeal.imageUrl,
-                fit: BoxFit.cover,
+              child: Stack(
+                children: <Widget>[
+                  Container(
+                    height: 300,
+                    width: double.infinity,
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.only(
+                        bottomLeft: Radius.circular(0),
+                        bottomRight: Radius.circular(0),
+                      ),
+                      child: Image.network(
+                        selectedMeal.imageUrl,
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  ),
+                  Positioned(
+                    top: 275,
+                    left: 0,
+                    child: Container(
+                      height: 100,
+                      width: MediaQuery.of(context).size.width,
+                      decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(30)
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ),
             buildSectionTitle(context, 'Ingredients'),
@@ -62,7 +88,7 @@ class MealDetailScreen extends StatelessWidget {
                     child: Text(
                       selectedMeal.ingredients[index],
                       style: TextStyle(
-                          fontWeight: FontWeight.w700, color: Colors.black45),
+                          fontWeight: FontWeight.w700, color: Colors.black54),
                     ),
                   ),
                 ),

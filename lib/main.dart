@@ -14,9 +14,10 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'MactivMeals',
       theme: ThemeData(
-        primarySwatch: Colors.pink,
-        accentColor: Colors.amber,
-        canvasColor: Color.fromRGBO(255, 254, 229, 1),
+        primarySwatch: Colors.green,
+        accentColor: Colors.greenAccent,
+        canvasColor: Colors.white,
+//        canvasColor: Color.fromRGBO(255, 254, 229, 1),
         fontFamily: 'Raleway',
         textTheme: ThemeData.light().textTheme.copyWith(
           body1: TextStyle(
