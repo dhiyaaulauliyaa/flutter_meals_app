@@ -68,8 +68,7 @@ class MealDetailScreen extends StatelessWidget {
                       width: MediaQuery.of(context).size.width,
                       decoration: BoxDecoration(
                           color: Colors.white,
-                          borderRadius: BorderRadius.circular(30)
-                      ),
+                          borderRadius: BorderRadius.circular(30)),
                     ),
                   ),
                 ],
@@ -116,6 +115,16 @@ class MealDetailScreen extends StatelessWidget {
             ),
           ],
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: Theme.of(context).primaryColor,
+        child: Icon(
+          Icons.delete,
+          color: Colors.white,
+        ),
+       onPressed: () {
+          Navigator.of(context).pop(mealId);
+        },
       ),
     );
   }
