@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
+//import 'package:mactiv_meals/models/meal.dart';
 
 import '../dummy_data.dart';
 
 class MealDetailScreen extends StatelessWidget {
   static const routeName = '/meal-detail';
+
+  final Function toggleFavorite;
+  final Function isMealFavorite;
+
+  MealDetailScreen(this.toggleFavorite, this.isMealFavorite);
 
   Widget buildSectionTitle(BuildContext context, String text) {
     return Container(
@@ -67,8 +73,9 @@ class MealDetailScreen extends StatelessWidget {
                       height: 100,
                       width: MediaQuery.of(context).size.width,
                       decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(30)),
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(30),
+                      ),
                     ),
                   ),
                 ],
@@ -119,12 +126,10 @@ class MealDetailScreen extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         backgroundColor: Theme.of(context).primaryColor,
         child: Icon(
-          Icons.delete,
-          color: Colors.white,
+          Icons.favorite,
+          color: isMealFavorite(mealId) ? Colors.amber : Colors.white,
         ),
-       onPressed: () {
-          Navigator.of(context).pop(mealId);
-        },
+        onPressed: () => toggleFavorite(mealId),
       ),
     );
   }
